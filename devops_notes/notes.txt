@@ -1,0 +1,912 @@
+7th Jan 2026
+============
+
+    -> What Is DevOps ?
+
+        -> DevOps is a set of "PRACTICES" that works to "AUTOMATE" and "INTEGRATE" 
+        the processes between Software Development (Dev) and IT Operations(Ops) teams.
+
+    -> Development Team
+
+        -> To "Build Applications" We need Roles Like 
+
+                -> Software Architect 
+                -> System Engineer
+                -> Software Developers 
+                -> Software Testers 
+                -> etc 
+
+    -> Operations Team
+
+        -> To "Build Infrastructure" & Maintain Applications, We need Roles Like 
+
+                -> System Admin 
+                -> Network Admin 
+                -> Cloud Admin 
+                -> Security Admin 
+                -> etc 
+
+    -> DevOps Engineer
+
+        -> DevOps Engineers will implement a set of "PRACTICES" using "TOOLS" so that 
+        organizations can build, test, and deploy [ DELIVERY LINE ] software 
+        faster and more reliably.
+
+
+    -> DevOps PRACTICES     ==>     "TOOLS" 
+
+        -> Version Control Systems (VCS) ==> Git
+
+            -> For Tracking Code 
+
+            -> Happens Inside Developer Laptop - Local To Individual Developer
+
+        -> Source Code Management (SCM) ==> GitHub 
+
+            -> Store Multiple Versions Of Code 
+
+            -> Happens Inside Organization - Central to All Developer
+
+        -> Containerization ==> Docker 
+
+            -> To Get Acceleration (FASTER) 
+
+        -> Orchestration ==> Kubernetes  
+
+            -> To Get Reliability 
+
+            -> Helps Run Applications Without Downtime (Run 24 X 7) - Production Environments 
+
+        -> Continuous Integration & Continuous Deployment (CI-CD) ==> GitHub Actions 
+
+            -> To Get Automation In Repetitive Tasks   
+
+    -> DevOps Prerequisites 
+
+        -> Application - Project
+
+            -> SDLC - Software Development Life Cycle 
+
+                -> Requirement -> Design -> Code -> "Build" -> Test -> Release -> "Deploy" 
+
+        -> Servers (AWS & AZURE) - Charges (4 INR Per Hour) 
+
+        -> Command Line Interface - CLI (Linux Commands)
+
+    -> As a DevOps Engineer You are responsible for     
+
+        -> Implement Automation
+
+        -> Implement Acceleration (Fastness)
+
+        -> Implement Reliability (Application Should Always Run)
+
+
+    -> When we start building/developing a project 
+
+        -> SDLC 
+
+            -> The Software Development Life Cycle (SDLC) is a process followed by 
+            software development teams to design, develop and test high-quality software. 
+
+            -> The SDLC consists of multiple stages such as 
+
+                -> Requirement -> Design -> Code -> "Build" -> Test -> Release -> "Deploy" 
+
+                -> NOTE: From DevOps Context 
+
+                    -> Code -> "Build" -> Test -> "Deploy" 
+
+                    -> "Build" & "Deploy" Applications On Servers 
+
+        -> Requirement
+
+            -> Build LMS (Learning Management System): Manage Courses 
+
+                -> Three Tier App Architecture
+
+                    -> One thing the most visited websites have in common is that they are dynamic websites.
+                    Their development typically involves server-side coding, client-side coding and 
+                    database technology.
+
+            -> Most Popular Applications
+
+                -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+        -> Code 
+
+            -> Developers will use "Git" to track code and eventually "Push" Code to "GitHub" 
+
+
+
+9th Jan 2026
+============
+
+    -> LMS Project 
+
+    -> "DEVELOPMENT" team
+
+        -> DEVELOPMENT Team mainly builds Applications 
+
+        -> DEVELOPMENT Means Coding 
+
+    -> Version Control Systems (VCS)
+
+        ->  Version control / Revision control / Source control
+            is a process that helps to "keep track of changes" made to 
+            files (computer programs, web site files, documents etc)
+
+        -> https://www.sirhow.com/uploads/2023/07/check-gpay-transaction-history-step-4.jpg
+
+        -> Advantage Of VCS is Revert Changes To Previous Working Versions, 
+            if there are issues in new version
+
+            -> TransactionIDs == Commit IDs 
+
+    -> To Implement Version Control System we need "Git" Software 
+
+        -> Git helps in tracking code / changes in your code 
+
+        -> Git tracks code in your laptop 
+
+        -> Git will generate commit id for every change we make (like every transaction me make in UPI)
+
+
+    -> All the transactions made will be stored in Server, similarly we store all our
+    commit id's in Source Code Management(SCM) like a Server 
+
+        -> NOTE: Mobile Phone -> GooglePay -> Bank Server(TransactionIDs)
+
+        -> NOTE: Laptop -> Git -> GitHub(Commit IDs )
+
+    -> GitHub - Server Side Software  - Organizations
+
+            -> GitHub provides a platform to store code and it's versions 
+
+            -> GitHub Stores All Versions Of Code in centralized location (github.com)    
+
+    -> NOTE: Example of Real World Application
+
+        -> https://notepad-plus-plus.org/downloads/ - APP
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus - CODE
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus/graphs/contributors - HISTORY 
+
+        -> https://github.com/notepad-plus-plus/notepad-plus-plus/commits/master/ - Commits 
+
+    -> Repository 
+
+        -> A repository contains all of your "project's files" and each file's revision history. 
+        Developers can discuss and manage your project's work within the repository.
+
+            -> https://github.com/notepad-plus-plus/notepad-plus-plus
+
+            -> https://github.com/notepad-plus-plus/notepad-plus-plus/tags
+
+
+    -> JIRA (Proprietary)
+
+        -> Jira is a proprietary product developed by Atlassian that allows 
+        bug tracking, issue tracking and agile project management. 
+
+        -> https://images.ctfassets.net/xjcz23wx147q/2vuHCsAF3tUpzYykEb9GAX/11fb10694a339636aceb9f531f11e49f/Kanban-updated.png
+
+    -> GitHub Projects & Issues (FREE)
+
+            -> GitHub Projects are a feature within GitHub designed for planning and tracking work
+
+            -> GitHub Issues is a built-in, lightweight issue-tracking system in every repository 
+                used for planning, discussing, and tracking work like 
+                bug reports, new features, and tasks.
+
+            -> NOTE: Within Project we have Issues 
+
+    -> Start LMS Project (Development - Developer)   
+
+        -> Create GitHub Account - https://github.com/
+        -> Create Repository
+        -> Assign Work To Developers - Projects & Issues On GitHub 
+        -> Developers Will Start Coding - Versioning Starts 
+        -> Developers Will Update Code To GitHub Repository   
+
+    -> Start LMS Project (Development - Developer)   
+
+        -> Create GitHub Account - https://github.com/
+        -> Create Repository - https://github.com/ravi2krishna/login-2601.git
+        -> Assign Work To Developers - Projects & Issues On GitHub 
+            -> https://github.com/ravi2krishna/login-2601/projects?query=is%3Aopen
+            -> https://github.com/ravi2krishna/login-2601/issues
+        -> Developers Will Start Coding - Versioning Starts 
+            -> Install Git Software for Versioning
+                -> Open GitBash 
+                -> Setting the git Configuration
+                    -> git config --global user.name "ravi2krishna"
+                    -> git config --global user.email "ravi2krishna@gmail.com"
+            -> Install Visual Studio Code (VSCode) to Write Code 
+            -> Implement(Start Coding) Issue / Feature Assigned to him 
+        -> Developers Will Update Code To GitHub Repository
+
+
+12th Jan 2026
+==============
+
+    -> Implement(Start Coding) Issue / Feature Assigned to him 
+
+    -> Developers Will Update Code To GitHub Repository
+
+    -> Currently the Application is on GitHub 
+
+    -> Can customers / clients access the Application from Github ?
+
+        -> NO 
+
+    -> We need Servers To Host / To Deploy Applications so that 
+    customers / clients access the Application
+
+    -> Operations Related Work
+    
+    -> Servers 
+
+        -> A Server is a "computer system" that provides data or services 
+            to others computers, known as "clients" over a network.
+
+        -> Laptop can be used by one person at a time 
+        
+        -> Server can be used by multiple persons(clients) at a time 
+
+    -> Physical Server 
+
+        -> Physical Server Consists Of "Hardware" + "Operating System" (Linux OS - Ubuntu)
+
+        -> CPU(Processor) + RAM + HDD + N/W Card
+    
+    -> Server Softwares 
+
+        -> Web Server : Hosts and Serves Web Pages / Web Applications Over Internet 
+
+            -> Examples : Apache Web Server, Nginx Web Server, IIS Server etc 
+
+        -> Database Server : Hosts Application Data & Transactions
+
+            -> Examples : MySQL Server, Postgres Server, MS SQL Server etc 
+
+        -> Email Server : Software that sends, receives, and stores emails.
+
+            -> Examples : Postfix Server, SendMail, Send grid etc 
+
+
+    -> Where To get servers from ?
+
+        -> Purchase Server 
+
+            -> Purchasing Servers is QUITE COSTLY and from learning perspective we cannot
+                afford a server 
+
+            -> Rather than Purchasing Server, we want to "RENT SERVERS" 
+        
+        -> As per example discussed 
+
+            -> Buying Server == Buying Bike 
+
+            -> Renting Server == Renting Bike 
+
+            -> Renting Bike : Pay for how many kilometers you traveled 
+
+            -> Renting Server : Pay for how much you use i.e "PAY AS YOU GO" price model
+
+                -> 1 Server for 1 hour 
+                -> 1 Server for 5 hour 
+                -> 1 Server for 5 days 
+
+            -> Where can i rent bike ?
+
+                -> Ola, Uber, Rapido etc 
+
+            -> Where can i rent server ?
+
+                -> AWS, AZURE, GCP, OCI etc
+
+    -> Cloud Computing 
+
+        -> Cloud computing is the "on-demand" delivery of "IT resources" 
+        like servers, storage, and software over the "internet" 
+        on a "pay-as-you-go" basis.
+
+    -> In our course will implement servers on both "AWS" & "AZURE"
+
+        -> AWS Cloud - FREE TRAIL - 6 Months - $200
+
+        -> AZURE Cloud - FREE TRAIL - 1 Month - $200
+
+    
+    -> AWS Account Setup - LABS 
+        
+        Visit - https://aws.amazon.com/free
+
+    -> AZURE Account Setup - LABS
+        
+        Visit - https://azure.microsoft.com/en-us/free/
+
+    -> Following Details Required - Cloud Setup
+
+        Unique Email ID
+        Unique Mobile Number
+        Unique PAN CARD
+        Unique Debit / Credit Card
+
+19th Jan 2026
+==============
+
+    -> AWS Server Setup 
+
+        -> Amazon Elastic Compute Cloud(EC2) is a part of Amazon's cloud-computing platform, 
+        Amazon Web Services, that "allows users to rent virtual computers(servers)" 
+        on which to run their "own computer applications".
+
+        -> Server                   ==> AWS EC2 Instance 
+        -> Server Name              ==> Instance Name 
+        -> Operating System         ==> AMI - Amazon Machine Image (Linux Ubuntu 22.04)
+        -> CPU + RAM                ==> Instance Types(t2.micro, t2.medium etc)           
+        -> Login / Authentication   ==> Key Pairs (Public Key & Private Key)
+        -> Network                  ==> VPC(Virtual Private Cloud)
+        -> Firewall                 ==> Security Group (Rules: Protocol, Port, Source)
+        -> Storage (Hard Disk)      ==> EBS Volume (Elastic Block Storage) is 8 GB 
+
+        -> Login To AWS 
+
+            -> https://aws.amazon.com/console/ 
+
+
+    -> Firewall 
+    
+        -> A firewall is a network security system that monitors and controls 
+            incoming and outgoing network traffic based on predetermined security rules (protocols) 
+
+        -> SSH Protocol (Secure Shell)
+
+            -> Is a network protocol used for secure remote access to 
+                computers over an unsecured network.
+
+            -> SSH allows users to log in, run commands and transfer files securely.
+
+            -> SSH typically runs on TCP port 22
+
+    -> How To Connect With Server ?
+
+        -> SSH Client Softwares 
+
+            -> A software program which uses SSH to connect with remote linux server 
+
+            -> From Online 
+                
+                -> https://ssheasy.com/
+
+            -> From Laptop / System Use any one of the below Software 
+
+                -> GitBash (recommended) it provides ssh & also git 
+                -> Terminal 
+                -> Putty 
+                -> etc 
+
+            -> Open GitBash / Terminal etc 
+
+                -> Navigate to location where private key is present i.e pem file 
+                    -> cd downloads 
+                -> Set pem file permissions to READ only 
+                    -> chmod 400 key 
+                -> Use below ssh command to connect with server 
+                    -> ssh -i identity_file/private_key username@public-ip-address 
+
+    
+    -> NOTE: We are using Linux Servers, which has only CLI (Command Line Interface)
+
+    -> CLI - Command Line Interface
+
+        -> CLI is a powerful tool for interacting with servers 
+            through "text based commands" 
+
+        -> CLI is very helpful in Automating Repetitive Tasks 
+
+    
+    -> Requirement From Customer 
+
+        -> Create 100 Text files 
+        -> Assume you don't have any CLI knowledge 
+        -> Then we are left with GUI - Graphical User Interface 
+            -> 1 text file creation - 3 seconds 
+            -> 100 text file creation - 300 seconds (5 mins)
+            -> 100000 text file creation - 300000 seconds (5000 mins) 
+
+    -> Resolving Requirement From Customer Using CLI 
+
+        -> touch file-{1..100}.txt
+
+    -> Hardware & System Software(OS) Commands 
+
+        -> CPU / Processor Info 
+
+            -> cat /proc/cpuinfo 
+        
+        -> RAM Info 
+
+            -> free -m 
+
+        -> Disk Info 
+
+            -> df -h 
+
+        -> Network  Info 
+
+            -> ip address 
+
+    -> System Software (OS)
+
+        -> uname 
+        -> cat /etc/os-release 
+
+    -> Check Running Processes 
+
+        -> ps -ef 
+        -> htop (to quit click q on keyboard)
+
+    -> Once Application is Developed 
+
+    -> How Customers Will Access Application ?
+
+        -> Customers Will Access Application Via Servers 
+
+    
+    -> To Host / Deploy Applications, Follow Below Approach 
+
+        -> Create Server 
+
+        -> Install Appropriate Softwares On Servers 
+
+        -> Host / Deploy Application On Server 
+
+        NOTE: Above Activities are Operations Oriented 
+
+    -> Web Server 
+
+        -> A web server is computer software [ Nginx HTTP Server ] 
+        and underlying hardware [ AWS Instance / AZURE VM ] 
+        that accepts requests via HTTP (port 80) 
+        to distribute web content.
+
+        -> NOTE: All Servers that host websites must have web server program.
+
+    
+    -> Below Work Is More Of System Admin Work 
+
+        -> As Web Server Works On HTTP with Port 80, update the Firewall with HTTP 
+
+    -> Commands to work with Web Application Deployment 
+
+    -> Web Server runs on port 80 
+
+    -> Commands to check, which port is in use by which service 
+
+        -> sudo ss -ntpl 
+
+    -> Install Web Server i.e Nginx HTTP Server 
+
+        -> sudo apt update -y 
+        -> sudo apt install nginx -y 
+        -> sudo ss -ntpl 
+    
+    -> Test Web Server 
+
+        -> Browse Public IP 
+
+    -> For Web Servers, we have DocumentRoot i.e location 
+        where web pages will be loaded from /var/www/html 
+
+        -> ls /var/www/html 
+
+        -> index page is called Landing Page Of Application
+
+        -> cat /var/www/html/index.nginx-debian.html
+
+        -> Repo URL - https://github.com/ravi2krishna/login-2601.git
+
+        -> Clone Repo Using CLI 
+
+            -> sudo git clone <url> <destination_directory>
+
+            -> sudo git clone https://github.com/ravi2krishna/login-2601.git /var/www/html 
+
+                -> fatal: destination path '/var/www/html' already exists and is not an empty directory.
+
+            -> Clean Up DocumentRoot
+
+                -> ls /var/www/html/
+                
+                -> sudo rm /var/www/html/index.nginx-debian.html
+
+                -> ls /var/www/html/
+
+                -> sudo git clone https://github.com/ravi2krishna/login-2516.git /var/www/html 
+
+                -> ls /var/www/html/
+
+                    -> README.md  img_avatar2.png  index.html (Success)
+                
+                -> Browse Public IP 
+
+21st Jan 2026
+==============
+
+    -> AZURE Server Setup 
+
+        -> Azure Virtual Machines (VM's) is a part of Azure's cloud-computing platform, 
+        Microsoft, that "allows users to rent virtual computers(servers)" 
+        on which to run their "own computer applications".
+
+        -> Server                   ==> Azure Virtual Machine (VM)
+        -> Server Name              ==> VM Name 
+        -> Operating System         ==> Image ( Linux Ubuntu 22.04)
+        -> CPU + RAM                ==> Sizes (b1s, b2s etc)           
+        -> Login / Authentication   ==> Key Pairs (Public Key & Private Key)
+        -> Network                  ==> VNET (Virtual Network)
+        -> Firewall                 ==> Network Security Group (Rules: Protocol, Port, Source)
+        -> Storage (Hard Disk)      ==> Disk is 30 GB 
+
+        -> Login To AZURE 
+
+            -> http://portal.azure.com/
+
+
+    -> How To Connect With Server ?
+
+        -> SSH Client Softwares 
+
+            -> A software program which uses SSH to connect with remote linux server 
+
+            -> From Online 
+                
+                -> https://ssheasy.com/
+
+            -> From Laptop / System Use any one of the below Software 
+
+                -> GitBash (recommended) it provides ssh & also git 
+                -> Terminal 
+                -> Putty 
+                -> etc 
+
+            -> Open GitBash / Terminal etc 
+
+                -> Navigate to location where private key is present i.e pem file 
+                    -> cd downloads 
+                -> Set pem file permissions to READ only 
+                    -> chmod 400 key 
+                -> Use below ssh command to connect with server 
+                    -> ssh -i identity_file/private_key username@public-ip-address 
+
+    
+    -> NOTE: We are using Linux Servers, which has only CLI (Command Line Interface)
+
+    -> CLI - Command Line Interface
+
+        -> CLI is a powerful tool for interacting with servers 
+            through "text based commands" 
+
+        -> CLI is very helpful in Automating Repetitive Tasks 
+
+    
+    -> Requirement From Customer 
+
+        -> Create 100 Text files 
+        -> Assume you don't have any CLI knowledge 
+        -> Then we are left with GUI - Graphical User Interface 
+            -> 1 text file creation - 3 seconds 
+            -> 100 text file creation - 300 seconds (5 mins)
+            -> 100000 text file creation - 300000 seconds (5000 mins) 
+
+    -> Resolving Requirement From Customer Using CLI 
+
+        -> touch file-{1..100}.txt
+
+    -> Hardware & System Software(OS) Commands 
+
+        -> CPU / Processor Info 
+
+            -> cat /proc/cpuinfo 
+        
+        -> RAM Info 
+
+            -> free -m 
+
+        -> Disk Info 
+
+            -> df -h 
+
+        -> Network  Info 
+
+            -> ip address 
+
+    -> System Software (OS)
+
+        -> uname 
+        -> cat /etc/os-release 
+
+    -> Check Running Processes 
+
+        -> ps -ef 
+        -> htop (to quit click q on keyboard)
+
+    -> Once Application is Developed 
+
+    -> How Customers Will Access Application ?
+
+        -> Customers Will Access Application Via Servers 
+
+    
+    -> To Host / Deploy Applications, Follow Below Approach 
+
+        -> Create Server 
+
+        -> Install Appropriate Softwares On Servers 
+
+        -> Host / Deploy Application On Server 
+
+        NOTE: Above Activities are Operations Oriented 
+
+    -> Web Server 
+
+        -> A web server is computer software [ Nginx HTTP Server ] 
+        and underlying hardware [ AWS Instance / AZURE VM ] 
+        that accepts requests via HTTP (port 80) 
+        to distribute web content.
+
+        -> NOTE: All Servers that host websites must have web server program.
+
+    
+    -> Below Work Is More Of System Admin Work 
+
+        -> As Web Server Works On HTTP with Port 80, update the Firewall with HTTP 
+
+    -> Commands to work with Web Application Deployment 
+
+    -> Web Server runs on port 80 
+
+    -> Commands to check, which port is in use by which service 
+
+        -> sudo ss -ntpl 
+
+    -> Install Web Server i.e Nginx HTTP Server 
+
+        -> sudo apt update -y 
+        -> sudo apt install nginx -y 
+        -> sudo ss -ntpl 
+    
+    -> Test Web Server 
+
+        -> Browse Public IP 
+
+    -> For Web Servers, we have DocumentRoot i.e location 
+        where web pages will be loaded from /var/www/html 
+
+        -> ls /var/www/html 
+
+        -> index page is called Landing Page Of Application
+
+        -> cat /var/www/html/index.nginx-debian.html
+
+        -> Repo URL - https://github.com/ravi2krishna/login-2601.git
+
+        -> Clone Repo Using CLI 
+
+            -> sudo git clone <url> <destination_directory>
+
+            -> sudo git clone https://github.com/ravi2krishna/login-2601.git /var/www/html 
+
+                -> fatal: destination path '/var/www/html' already exists and is not an empty directory.
+
+            -> Clean Up DocumentRoot
+
+                -> ls /var/www/html/
+                
+                -> sudo rm /var/www/html/index.nginx-debian.html
+
+                -> ls /var/www/html/
+
+                -> sudo git clone https://github.com/ravi2krishna/login-2516.git /var/www/html 
+
+                -> ls /var/www/html/
+
+                    -> README.md  img_avatar2.png  index.html (Success)
+                
+                -> Browse Public IP 
+
+        -> pwd : present working directory
+
+        -> ls : list directory / folder content 
+
+        -> man : manual pages for commands you use (helper utility to know about command)
+
+        -> mkdir : create directory 
+
+        -> touch : create empty file 
+
+        -> cd : change directory 
+
+        -> cat : file content viewer (text, pdf, script, sql, conf etc)
+
+        -> vi / vim (visual editor) is a text editor in linux comes pre-installed 
+
+    -> vi modes 
+
+        -> vi existing_file_name 
+
+            -> vi file.txt 
+
+            -> i - insert mode (insert data)
+            -> esc - command mode 
+            -> :w - write data 
+            -> :wq - write data & quit 
+
+        -> vi new_file (create file)
+
+    -> Shell Scripting 
+
+        -> A shell script is a computer program, or text file, that contains 
+        a sequence of commands for a Unix-based operating system's shell 
+        (command-line interpreter) to execute automatically. 
+        It functions as a program to automate repetitive tasks that a user 
+        would otherwise have to type manually into the terminal one command at a time. 
+
+    -> wget https://raw.githubusercontent.com/ravi2krishna/login-2601/refs/heads/main/deploy.sh
+
+    -> ls 
+
+    -> sh deploy.sh
+
+    
+23rd Jan 2026
+==============
+
+    -> Any Project (Development + Operations)
+
+    -> Login Project is very simple (Has Frontend Only i.e Static WebSite)
+
+        -> https://github.com/ravi2krishna/login-2601.git
+
+    -> Three Tier App Architecture 
+
+        -> Most Popular Applications
+            
+            -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+    
+    -> LMS Application Stack
+
+        -> Database: POSTGRES
+        -> Backend: NODEJS 
+        -> Frontend: JavaScript (REACTJS)
+
+    -> LMS Project Repository 
+
+        -> https://github.com/ravi2krishna/lms-v1.git
+
+    -> Try Deploying Above Application Like Login App (Deployment FAILED)
+
+    -> Real World Projects like LMS Application goes with following Approach 
+
+        -> Requirement -> Design -> Coding -> Building -> Testing -> Deployment 
+
+        -> From DevOps Point Of View we focus on 
+
+            -> Coding -> Code Analysis (White box Testing) -> Build -> Test (QA Team) -> Deploy 
+
+            -> The above stages in software development makes up CI-CD Pipelines  
+    
+    
+    -> Static Code Analysis - SCA (White box Testing)
+
+        -> Static code analysis is the "process" of examining source code, 
+        without executing it to find potential bugs, security vulnerabilities, and 
+        quality issues.
+
+        -> Automated tools can scan the code against predefined rules 
+        to identify problems early in the development cycle, 
+        promoting better coding practices and security. 
+
+        -> Static code analysis involves examining the code for potential issues, 
+        vulnerabilities, and adherence to coding standards and best practices. 
+
+        -> Static code analysis can help identify various types of issues, including:
+
+                Syntax errors and typos
+                Unused variables and methods
+                Code duplication
+                Security vulnerabilities (e.g., SQL injection, cross-site scripting)
+                Memory leaks and resource leaks
+                Performance issues
+                Conformance to coding standards and style guidelines (e.g., indentation, naming conventions)
+
+        -> NOTE: Later on we as DevOps Engineers will write Automated CI-CD Pipelines,
+                in which SCA is one of the checks / steps 
+
+    -> Earlier to implement "Version Control" Process we used "Git" Tool 
+
+    -> Now to implement "Static Code Analysis" Process we use "SonarQube" Tool 
+
+    -> SonarQube 
+
+        -> SonarQube is an open-source platform for continuous code quality and security analysis 
+        that helps developers identify bugs, security vulnerabilities, and code smells in their code. 
+        It integrates with CI/CD pipelines.
+
+        -> https://www.sonarsource.com/products/sonarqube/  
+
+    -> SonarQube Requires Following Hardware Configuration
+        
+            -> AWS 
+            
+                -> “t2.xlarge instance” i.e 16 GB RAM - 4 CPU’s on AWS, with 20 GB as Storage.  
+                
+            -> AZURE 
+            
+                -> D4s_v3, i.e 16 GB RAM - 4 CPU’s on AZURE, with 30 GB as Storage
+                
+            -> NOTE: Charges Applicable i.e 16 INR per hour
+
+            -> NOTE: SonarQube works on “port 9000”
+
+                -> Make sure to add port 9000 as part of your Security Group or Network Security Group
+
+        -> To Install SonarQube Will Rely On Docker Tool (Docker is for Fastness)
+
+            -> Without Docker - https://github.com/ravi2krishna/sonarqube-installation-guide.git - 45 mins 
+
+            -> With Docker - (5-10) mins Max 
+
+        -> Verify SonarQube Installation
+
+            -> sudo ss -ntpl
+            -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
+
+        -> For SonarQube Setup, we need Docker 
+
+            docker
+            ls
+            wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            ls
+            docker   
+        
+        -> Install SonarQube
+            sudo ss -ntpl
+            sudo docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+            sudo ss -ntpl
+
+        -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
+
+        -> Default credentials are 
+            Username is admin 
+            Password is admin
+
+    -> LMS Project Repository 
+
+        -> https://github.com/ravi2krishna/lms-v1.git
+
+    -> Github Fork
+
+        -> Forking a repository means creating a copy of the repo. 
+        When you fork a repo, you create your own copy of the repo on your GitHub account.
+
+        -> NOTE: Fork Above Project to your Github Accounts
+
+    -> Performing Code Analysis On LMS Project (Below Link Should be Replaced with your github account )
+    
+        -> https://github.com/Vignesh-2009/lms-v1.git
+        
+        ls 
+        git clone -b dev https://github.com/Vignesh-2009/lms-v1.git 
+        ls 
+        ls lms-v1
+        cd lms-v1/webapp
+        ls 
+        sudo docker run  --rm -e SONAR_HOST_URL="http://3.144.15.56:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_88e483f8bb4b2d3c1621d556192c055e6c9995e7 -Dsonar.projectKey=lms
+
+    -> NOTE: Once LAB is done with Sonar Analysis, Delete SonarQube Server 
