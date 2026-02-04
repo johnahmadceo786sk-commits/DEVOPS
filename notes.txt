@@ -910,3 +910,909 @@
         sudo docker run  --rm -e SONAR_HOST_URL="http://3.144.15.56:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_88e483f8bb4b2d3c1621d556192c055e6c9995e7 -Dsonar.projectKey=lms
 
     -> NOTE: Once LAB is done with Sonar Analysis, Delete SonarQube Server 
+
+26th Jan 2026
+==============
+
+    -> Build Management 
+
+        -> The term "build" may refer to the "process" by which 
+        "source code" is converted into "binary code" (software artifact)
+
+        -> In DevOps, the software build process is a foundational component of the 
+        Continuous Integration and Continuous Delivery (CI/CD) pipeline, 
+        serving as a critical automated step that transforms 
+        source code into a deployable product.
+
+        -> Source Code - https://github.com/notepad-plus-plus/notepad-plus-plus/
+
+                -> After Building, Artifact is Useable Software which is below 
+
+        -> Binary Code - https://notepad-plus-plus.org/downloads/
+
+
+    -> Any Build implementation consists of following steps 
+
+        -> Source Code Files 
+
+            -> Source code is the list of human-readable instructions that a programmer writes
+
+            -> Handled by Developer
+
+        -> Metadata File 
+
+            -> File that contains information about the project and 
+            configuration details used to build the project. 
+
+            -> Handled by Developer
+
+        -> Binary Code (After Build is done)
+
+            -> Build artifacts are files produced by a build
+
+            -> Handled by Developer in his Laptop
+
+            -> Handled by DevOps Engineer on Server for future Automation in CI-CD
+
+
+    -> NOTE: Below Link Help's you understand, how developers initially learn to perform builds 
+
+        -> https://radixweb.com/blog/steps-to-build-react-project-with-create-react-app
+
+
+    -> LMS Project - BUILD 
+
+        -> As LMS App is multi tier, We need Following Rules(ports) in Security Group
+            -> SSH - 22 - Login
+            -> DATABASE TIER [ POSTGRES ] - 5432 - Storing Data
+            -> APPLICATION TIER [ NODEJS ] - 8080 - Business Logics
+            -> FRONTEND TIER [ REACTJS ] - 80 - Hosted On Web Server
+
+    -> NOTE: LMS Application Build Requires, below hardware configuration
+
+        -> AWS 
+
+            -> “t2.medium instance” i.e 4 GB RAM - 2 CPU’s on AWS, with 20 GBas Storage.  
+
+        -> AZURE 
+
+            -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage
+
+    -> NOTE: Steps To Build LMS Application (From Development Team We Get KT)
+
+    -> sudo ss -ntpl
+
+        -> Setup Database 
+
+            -> Goto https://www.postgresql.org/download/linux/ubuntu/
+
+                sudo apt install curl ca-certificates
+                sudo install -d /usr/share/postgresql-common/pgdg
+                sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+                . /etc/os-release
+                sudo sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+                sudo apt update
+                sudo apt install postgresql-18
+
+    -> sudo ss -ntpl
+
+    -> Every Database has connection properties, which includes
+            -> Address Of Database
+            -> Database Port
+            -> Database Username
+            -> Database Password
+
+        -> Commands to set the password for postgres database
+            -> sudo su - postgres
+            -> psql
+            -> \password
+
+
+    -> Setup Backend / App Layer For LMS 
+
+            -> Create a new session for server using "ubuntu" server 
+
+            -> Install Nodejs on your server using below Link 
+
+                -> https://nodesource.com/products/distributions
+
+                    node -v
+                    npm -v
+                    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+                    sudo apt-get install -y nodejs
+                    node -v
+                    npm -v
+
+
+    -> Steps to Build Backend API (use "ubuntu" user session)
+
+            -> ls
+            -> git clone -b dev https://github.com/joshisuyog4/lms-v1.git 
+            -> ls 
+            -> cd ~/lms-v1/api
+            -> vi .env 
+
+                MODE=dev
+                PORT=8080
+                DATABASE_URL=postgresql://postgres:db_password@localhost:5432/postgres
+
+                -> NOTE: In .env file we would specify the database connection details.
+
+                    -> grep .env -r
+
+            -> Verify in "postgres" user session 
+
+                -> \dt 
+
+            -> Database Schema (Verify in "ubuntu" user session)
+
+                -> cat prisma/migrations/20221110085013_init/migration.sql
+
+            -> Commands to setup Database tables (Verify in "ubuntu" user session)
+
+                -> npm install 
+                -> npx prisma generate && npx prisma db push
+
+            -> Verify in "postgres" user session 
+
+                -> \dt 
+
+            -> NOTE: Command to build application using "ubuntu" user
+
+                -> ls build
+                -> npm run build 
+                -> ls build
+
+            -> NOTE: Command to start application using "ubuntu" user    
+
+                -> node build/index.js 
+
+        -> Verify Backend Status 
+
+            -> Verify with Browser - http://public-ip:8080/api  
+
+            -> NOTE: If you get below message, backend deployment is success   
+
+                {"message":"success","mode":"dev"}
+
+
+    -> Setup Frontend / Client Layer For LMS 
+
+        -> In Our Repo, we have "webapp" directory which is frontend part of the application
+
+        -> Create a new session for server using "ubuntu" server 
+
+        -> cd ~/lms-v1/webapp/
+
+        -> vi .env 
+
+            VITE_API_URL=http://public-ip:8080/api
+
+        -> To build frontend
+
+            -> npm install
+            -> ls dist
+            -> npm run build 
+            -> ls dist
+
+        -> To Host Frontend, we need web server 
+
+            -> sudo ss -ntpl
+            -> sudo apt -y install nginx
+            -> sudo ss -ntpl
+            -> ls /var/www/html/
+            -> sudo rm -rf /var/www/html/*
+            -> ls /var/www/html/
+            -> sudo cp -r ~/lms-v1/webapp/dist/*  /var/www/html/
+            -> ls /var/www/html/
+            -> ls dist 
+
+
+    -> For Troubleshooting 
+
+        -> Check In "ubuntu" user Session
+
+            -> sudo ss -ntpl
+            -> sudo systemctl stop postgresql
+            -> sudo ss -ntpl
+            -> sudo systemctl start postgresql
+            -> sudo ss -ntpl
+
+            -> sudo ss -ntpl
+            -> go tpt backend session
+                -> control + c 
+            -> sudo ss -ntpl
+            -> node build/index.js
+
+            -> Check In "ubuntu" user Session
+            -> sudo ss -ntpl
+            -> sudo systemctl stop nginx
+            -> sudo ss -ntpl
+            -> Check Application in Browser
+            -> sudo systemctl start nginx
+            -> sudo ss -ntpl
+            -> Check Application in Browser
+
+    -> NOTE: Terminate Server Once Lab is done 
+
+
+28th Jan 2026
+==============    
+
+    -> Project - 1 
+
+        -> Code -> Build -> Test -> Deploy 
+
+            -> Git & GitHub -> NPM -> SonarQube -> Servers 
+
+    -> NOTE: Next Goal is to Implement DevOps Practices / Process On Above Project 
+
+    -> DevOps is a set of PRACTICES that works towards the 
+        "AUTOMATION" and "INTEGRATION" of the processes between 
+        Software Development (Dev) and IT (Ops) teams, 
+        so that organizations can "BUILD", "TEST" and "DEPLOY" softwares/applications 
+        "FASTER" and more "RELIABLE"
+
+    -> Whole Project - 1 Took 2-3 Hours 
+
+    -> From DevOps Teams, Organizations are looking for Acceleration i.e "FASTER"
+
+        -> For our earlier experience, using SonarQube(45 Mins), traditionally 
+
+        -> Why shouldn't you Apply Docker on Whole Application Process ??? 
+
+            -> Whole Application Process (Dev & Ops) -> Traditionally Took 2-3 Hours
+
+            -> Whole Application Process (Dev & Ops) -> Docker Took 5-10 mins 
+
+    -> NOTE: To Accelerate Development & Deployment process, we use "Containerization" Practice
+
+
+    -> Project - 2
+
+        -> Implement Acceleration i.e FASTNESS using "Containerization" Practice
+
+    -> Containerization
+
+        -> Containerization is one of the practices in devops, which provides 
+
+            -> "Lightweight" and "Efficient" way of running applications 
+
+            -> Promotes "Faster Deployments" and "Portability" for applications
+
+        -> Containerization is implemented by software/tool "DOCKER" 
+
+    -> Container 
+
+        -> An object for holding or transporting something 
+
+            -> https://upload.wikimedia.org/wikipedia/commons/d/df/Container_01_KMJ.jpg
+
+        -> In terms of software development, a container is an object 
+        for holding or transporting/shipping applications.
+
+            -> https://cdn.prod.website-files.com/67615512eed3697e5e735df6/67c1d375b94ef6458106170b_vrGMCnHTQY2TKkXLNFbx.jpeg
+
+    -> Monolithic Architecture
+
+        -> Monolithic architecture is a software design pattern where the entire application 
+        is built as a "single, indivisible unit".
+
+    -> Micro Services Architecture
+
+        -> Microservices Architecture is a software development approach that involves 
+        building "small, independent services" that work together to create a larger application.
+
+    -> https://miro.medium.com/v2/resize:fit:1400/1*rW3dglWAkRhnPpMrnacQ-g.png
+
+    -> NOTE: As DevOps Engineer, Deploying Micro Sized Applications(Micro Services) on Containers 
+    is our primary work on projects 
+
+
+    -> Docker Architecture
+
+        -> Docker Client (CLI)  
+
+        -> Docker Server (Daemon)
+
+        -> Docker Registry (https://hub.docker.com)
+
+        -> Docker Images
+
+        -> Docker Containers 
+
+        -> https://assets.bytebytego.com/diagrams/0414-how-does-docker-work.png
+
+
+        -> Python is Programming Language 
+        -> SonarQube is Code Analysis Tool 
+        -> Ubuntu is Operating System 
+        -> Postgres is Database 
+
+        -> NOTE: All Above are present in Docker Registry (https://hub.docker.com)
+
+        -> NOTE: In Terms of Docker all the above are considered as "Docker Images"
+
+        -> Python is an Image
+        -> SonarQube is an Image
+        -> Ubuntu is an Image
+        -> Postgres is an Image
+
+        -> NOTE: All the above images are stored in Docker Registry (https://hub.docker.com)
+        like Different Applications in Play Store
+
+    -> Docker Containers are Runtime of images 
+
+            -> Images are like Templates / Blueprints
+
+            -> Containers are Real Entities We run
+
+            -> NOTE: To create a container, image is mandatory 
+
+        -> A container is an object for holding or transporting/shipping applications.
+
+            -> To Create Container, we use Docker Client (CLI) and make a request 
+
+            -> DevOps Engineer -> Makes Request For Creating Container Using Docker Client (CLI)
+
+                -> Docker Client (CLI) -> Sends Request To Docker Server (Daemon) -> Daemon Connects To Docker Registry
+
+                    -> Fetch Docker Images to Server(compute) -> Using Image Daemon Runs/Creates Containers
+
+
+        -> The Daemon/Service is responsible for managing Docker objects 
+            such as images, containers, and networks. All the heavy lifting is done by daemon.
+
+        -> The client sends commands to the daemon and receives output. 
+
+        -> The registry stores Docker images and allows them to be shared among users and systems.
+
+        -> A Docker image is a lightweight, standalone, and executable package 
+            that includes everything needed to run the desired software application.
+
+        -> A container in Docker allows you to run an application with all the dependencies it needs. 
+            To create a container we need Docker Image.
+
+        -> NOTE: Without Proper Understanding Of Docker we cannot work with "Kubernetes"
+
+        -> NOTE: Prerequisite Of Kubernetes is Docker
+
+
+
+    -> Docker Setup 
+
+        -> AWS 
+
+            -> “t2.medium instance” i.e 4 GB RAM - 2 CPU’s on AWS, with 20 GB as Storage.  
+
+        -> AZURE 
+
+            -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage
+
+        -> Add Following Rules in Security Groups / Network Security Groups
+            -> 22, 80, 32768-61000, 8080-9090
+
+                -> 32768-61000 - Docker Pre defined port range(*)   
+                -> 8080-9090 - User defined port range (Based on your Requirement)
+
+        -> Setup Docker 
+
+            -> docker 
+            -> wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            -> docker
+
+        -> Check Docker Images On Host 
+
+            -> docker image ls
+            -> permission denied
+
+        -> To Overcome Permissions issues, add ubuntu user to docker group 
+
+            -> sudo usermod -aG docker ubuntu
+            -> newgrp docker
+
+        -> Check Docker Containers On Host 
+
+            -> docker container ls -a 
+
+        -> Create Docker Containers On Host 
+
+            -> docker container run --name c1 <image>
+
+            -> docker container run --name c1 hello-world 
+
+30th Jan 2026
+==============
+
+    -> To Run Containers we have Modes 
+
+        -> No Mode 
+
+            -> Containers are in exit state i.e stopped 
+
+            -> docker container run --name c1 ubuntu
+
+                -> Name Conflict & Latest Tag 
+
+            -> docker container run --name c3 ubuntu
+
+
+        -> Interactive Mode / Foreground Mode (development / troubleshoot)
+
+            -> docker container run -it --name c4 ubuntu
+
+            -> cat /etc/os-release
+
+            -> Verify By Opening One More Sessions for Server 
+
+                -> docker container ls -a
+
+            -> NOTE: In Interactive Mode Containers will stop, once we come out of the container
+
+            -> NOTE: Containers are "Lightweight" and "Efficient" 
+
+                -> docker container run -it --name c5 ubuntu:22.04 
+
+                -> cat /etc/os-release
+
+                -> Run following command on host 
+
+                    -> ps -ef 
+
+                -> Run following command on c5 container 
+
+                    -> ps -ef 
+
+                    -> ssh 
+
+                    -> git
+
+                    -> ss 
+
+            -> NOTE: As we have Microservices, we need micro sized Environments 
+            i.e containers using images which has only what is required 
+
+
+        -> Detached Mode / Background Mode (Production)
+
+            -> docker container run -dt --name c6 ubuntu:22.04 
+
+            -> docker container ls -a
+
+            -> NOTE: In Detached Mode Containers will never stop, unless we explicitly stop
+
+            -> docker container exec <container-name> <command> 
+
+            -> docker container exec c6 cat /etc/os-release
+
+            -> docker container exec c6 ps -ef 
+
+            -> docker container run -it --name c7 ubuntu:22.04 
+
+            -> docker container exec -it c6 bash 
+
+                -> exit 
+
+
+    -> Container Management Commands 
+
+        -> Server: Create / Start / Stop / Remove 
+
+        -> Containers: Create / Start / Stop / Remove 
+
+            -> docker container rm <container-name>
+            -> docker container rm <container-id>
+
+            -> docker container stop <container-name>
+
+            -> docker container start <container-name>
+
+            -> docker container rm -f <container-name>
+
+        -> Another Approach To Create Containers 
+
+            -> docker pull ubuntu:25.04 
+
+            -> docker container create -it --name c10 ubuntu:25.04 
+            -> docker container start --attach -i c10
+
+
+    -> Goal: Run Web Application In Container, like we did in Server / VM  
+
+        -> Procedure in Server / VM 
+
+            -> Create Server / VM 
+            -> Update The System 
+            -> Install Nginx Web Server 
+            -> Fetch Application Code
+            -> Deploy Application On Nginx Web Server 
+
+        -> Procedure in Container (Why) 
+
+            -> NOTE: Containers are "Lightweight" and "Efficient" 
+
+            -> docker container run -dt --name web-app ubuntu:22.04 
+            -> docker container ls -a
+            -> ss -ntpl 
+            -> docker container exec -it web-app bash 
+            -> ss -ntpl 
+            -> apt update -y 
+            -> apt install iproute2 -y 
+            -> ss -ntpl 
+            -> apt install nginx -y 
+            -> service nginx start 
+            -> ss -ntpl 
+
+            -> Check properties Of container using 
+
+                -> docker container inspect web-app
+                    -> "IPAddress": "172.17.0.2"
+
+                -> curl 172.17.0.2
+
+1st Feb 2026
+==============
+
+    -> NOTE: Above approach is not a recommended way, but it connects 
+    how we shifted from VM to Container.
+
+    -> docker container rm -f web-app
+
+    -> docker container run -dt --name web-app ubuntu:22.04 
+
+    -> docker container inspect web-app
+
+    -> curl 172.17.0.2
+
+    -> docker container exec -it web-app bash 
+
+    -> service nginx start 
+
+    -> ss -ntpl 
+
+    -> NOTE: Above approach is not a recommended way, as we need to 
+    setup nginx from scratch again 
+
+
+    -> NOTE: Below approach is a recommended way
+
+        -> docker container run -dt --name web-app-new nginx 
+
+        -> docker container ls -a
+
+        -> docker container inspect web-app-new 
+
+        -> curl 172.17.0.3
+
+        -> docker container exec web-app-new cat /etc/os-release 
+
+    -> NOTE: 
+
+        -> docker container rm -f web-app
+
+        -> docker container rm -f web-app-new 
+
+        -> docker container run -dt --name web-app ubuntu:22.04 
+
+        -> docker container inspect web-app
+
+        -> curl 172.17.0.2
+
+        -> docker container run -dt --name web-app-new nginx 
+
+        -> docker container inspect web-app-new 
+
+        -> curl 172.17.0.3
+
+    -> Browse Public-IP (No access to Nginx Page)
+
+        -> As nginx is running on the container, not on the host 
+
+        -> Now how can we make customers access web applications from internet ??
+
+    -> To Access Containers Outside i.e internet we need to understand docker networking
+
+    -> Docker supports following network drivers, each designed for specific use case
+
+        -> Host
+        -> None
+        -> Bridge
+
+    -> docker network ls 
+
+    -> docker container ls -a
+
+    -> docker container inspect web-app
+
+    -> docker container inspect web-app-new 
+
+    -> docker network inspect bridge  
+
+    -> NOTE: By Default, Containers will run on "bridge" network 
+
+    -> Host Network Driver
+
+        -> This driver removes network isolation between the container and the Docker host, 
+        allowing them to share the host’s networking namespace
+
+        -> docker network inspect host   
+
+        -> docker container run -dt --name web-app-host --network=host nginx 
+
+        -> docker container ls -a
+
+        -> docker network inspect host   
+
+        -> docker container inspect web-app-host
+
+        -> docker container inspect web-app
+
+        -> docker container inspect web-app-new 
+
+        -> docker container inspect web-app-host
+
+    -> NOTE: Check below command 
+
+        -> docker container run -dt --name web-app-login --network=host nginx 
+
+        -> docker container ls -a
+
+    -> NOTE: Check Container logs using 
+
+        -> docker container logs <Container-name> 
+
+        -> docker container logs web-app-login
+
+            -> nginx: [emerg] bind() to [::]:80 failed (98: Address already in use)
+
+            -> NOTE: Fix is upcoming bridge network 
+
+
+    -> None Network Driver
+
+        -> This driver removes network access to containers i.e no network (no www)
+
+            -> docker container ls -a
+            -> docker container exec web-app apt update -y 
+            -> docker container exec web-app-host apt update -y 
+            -> docker network inspect none
+            -> docker container run -dt --name web-app-none --network=none nginx 
+            -> docker container ls -a
+            -> docker network inspect none    
+            -> docker container exec web-app-none apt update -y 
+
+        -> NOTE: This confirms we have no network access in none network mode 
+
+
+    -> Bridge Network Driver
+
+        -> The default network driver for containers. 
+        When a new container is run, it can be attached to this Bridge network.
+
+        -> Using bridge network we can run multiple containers at same time, 
+        but cannot be accessed outside via internet. 
+
+        -> To Allow External Access To Containers using bridge, we can use Port Forwarding (-p)
+
+        -> Port Forwarding: This is the activity that makes a "port inside a container" 
+            accessible to "ports on the Docker host" for external access.
+
+            -> -P docker ephemeral ports ( predefined range 32768 to 61000 )
+
+            -> docker container run -dt --name web-app-one nginx 
+
+            -> docker container ls -a
+
+            -> docker container inspect web-app-one
+
+            -> docker container run -dt --name web-app-two -P nginx 
+
+            -> docker container ls -a
+
+            -> docker container inspect web-app-two 
+
+            -> docker container inspect web-app-one
+
+            -> Browse Public-IP:32768
+
+            -> docker container run -dt --name web-app-three -P nginx 
+
+            -> docker container ls -a
+
+            -> Browse Public-IP:32769 
+
+            -> docker container run -dt --name web-app-four -P nginx 
+
+            -> docker container ls -a
+
+            -> Browse Public-IP:32770
+
+    -> NOTE: -p docker user defined ports ( user defined range for me is 8080-9090 )
+
+        -> docker container run -dt --name web-app-five -p 8080:80 nginx 
+
+        -> docker container ls -a
+
+        -> Browse Public-IP:8080 
+
+        -> docker container run -dt --name web-app-six -p 8085:80 nginx 
+
+        -> docker container ls -a
+
+        -> Browse Public-IP:8085 
+
+    -> NOTE: Earlier we used below command 
+
+        -> docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+
+
+4th Feb 2026
+==============
+
+    -> Data Persistency 
+
+        -> Persistent Means Permanent Storage
+
+        -> Non-Persistent Means Temporary Storage
+
+    -> NOTE: By default containers are "non-persistent"(ephemeral) in nature
+    This design makes containers lightweight, portable, and 
+    easy to scale or replace, which is ideal for "stateless" applications. 
+
+    -> Goal: Deploy Login Application
+
+        -> https://github.com/ravi2krishna/login-2601.git
+
+        -> Before Getting Started remove all existing containers 
+
+            -> docker container rm -f $(docker container ps -aq)
+
+            -> docker container ls -a
+       
+        -> docker container run -dt --name login-app-1 -p 8080:80 nginx 
+
+        -> Above command gives only Nginx, but we need Login App 
+
+        -> docker container exec -it login-app-1 bash 
+
+        -> ls /var/www/html/
+
+        -> NOTE: Above directory is valid in Servers but not in containers 
+
+        -> Inside containers created with Nginx Image use below location for hosting code
+
+            -> ls /usr/share/nginx/html
+
+        -> git clone https://github.com/ravi2krishna/login-2601.git /usr/share/nginx/html
+
+        -> apt update -y 
+        -> apt install git -y 
+
+        -> git clone https://github.com/ravi2krishna/login-2601.git /usr/share/nginx/html
+
+            -> fatal: destination path '/usr/share/nginx/html' already exists and is not an empty directory.
+
+            -> Clean Up DocumentRoot
+
+                -> ls /usr/share/nginx/html
+                
+                -> rm -rf /usr/share/nginx/html/* 
+
+                -> ls /usr/share/nginx/html
+
+        -> git clone https://github.com/ravi2krishna/login-2601.git /usr/share/nginx/html
+
+        -> Test by Browsing ip address of server
+        
+            -> exit 
+
+        -> Let's remove the container and check back again by Browsing ip address of server
+
+            -> docker container rm -f login-app-1 
+            -> Browse ip address of server
+
+        -> Create Login App Container again
+
+            -> docker container run -dt --name login-app-1 -p 8080:80 nginx 
+
+            -> docker container ls -a
+
+            -> Browse ip address of server
+
+        -> NOTE: With above observation, we can say, when we remove container 
+        all data associated with container is lost 
+        
+        -> To achieve Persistency with data inside containers use "Docker Volumes"
+
+    
+    -> Docker Volumes
+
+        -> Docker volumes is a mechanism for "persisting data" generated by Docker containers.  
+
+        -> Docker volumes allow data to persist even when containers are deleted. 
+
+        -> Data Persistency For Login App 
+
+            -> docker volume ls 
+            -> docker container rm -f login-app-1
+            -> docker container run -dt --name login-app-1 -p 8080:80 -v login_app:/usr/share/nginx/html nginx 
+            -> docker container ls -a
+            -> docker volume ls 
+            -> NOTE: The Above volume is on host 
+            -> docker volume inspect login_app
+            -> sudo ls /var/lib/docker/volumes/login_app/_data
+
+            -> docker container exec -it login-app-1  bash
+            -> apt update -y 
+            -> apt install git -y 
+            -> rm -rf /usr/share/nginx/html/*    
+            -> git clone https://github.com/ravi2krishna/login-2601.git /usr/share/nginx/html
+            -> exit 
+            -> sudo ls /var/lib/docker/volumes/login_app/_data
+
+
+        -> Let's confirm volume helped us persist data ?
+
+            -> docker container rm -f login-app-1
+            -> docker container ls -a
+            -> Browse ip address of server
+            -> docker volume ls 
+            -> sudo ls /var/lib/docker/volumes/login_app/_data
+            -> docker container run -dt --name login-app-1 -p 8080:80 -v login_app:/usr/share/nginx/html nginx 
+            -> docker container exec login-app-1 ls /usr/share/nginx/html
+            -> Browse ip address of server
+
+    -> NOTE: Now say our system encountered downtime (because of hardware failure)
+
+        -> Next step is create a new server in a different data center and host application
+
+            -> Launch New Server & Install Docker 
+
+            -> docker container run -dt --name login-app-1 -p 8080:80 -v login_app:/usr/share/nginx/html nginx
+
+            -> Test by Browsing ip address of server
+
+            -> NOTE: Login Application is not working 
+
+        -> NOTE: With above observation, we can say, volumes creates dependencies
+        which breaks the principal of "Portability"
+
+        -> NOTE: Now we want "Portability" and "Data" required for Application to work 
+
+    
+
+    -> Dockerize Applications / Build Custom Docker Images
+
+        -> The process of Dockerizing an application involves creating a Dockerfile, 
+        building a Docker image, and running the application as a Docker container.
+
+        -> NOTE: Suggestion given from Official Nginx Image https://hub.docker.com/_/nginx
+
+            -> Alternatively, a simple Dockerfile can be used to generate a new image 
+            that includes the necessary content (which is a much cleaner solution than 
+            the bind mount/volume above)
+
+        -> Dockerize an application is the process of converting an application to run 
+        within a Docker container without any dependencies
+
+        -> Docker can build images automatically by reading the instructions from a "Dockerfile"
+
+    -> Dockerfile 
+
+        -> A Dockerfile is a text document that contains all the commands 
+        a user could call on the command line to assemble an image. 
+        
+        -> Dockerfile is source code for Docker Image.
+
+            -> Nginx Dockerfile - https://github.com/nginx/docker-nginx/blob/a306285ea2e4267c63ca539c66e8bc242bdce917/mainline/debian/Dockerfile
+
+    
+    -> Dockerize an application requires following Flow
+
+            -> create a Dockerfile with the required instructions in your project i.e repository
+
+            -> use the "docker build" command to create a Docker image 
+
+            -> Then you can run the container using the image built for confirmation 
+
+            -> https://miro.medium.com/v2/1*eh-tX75FFzQffFhCfCZaMA.png
