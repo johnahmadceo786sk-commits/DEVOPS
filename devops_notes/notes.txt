@@ -245,14 +245,14 @@
     customers / clients access the Application
 
     -> Operations Related Work
-    
+
     -> Servers 
 
         -> A Server is a "computer system" that provides data or services 
             to others computers, known as "clients" over a network.
 
         -> Laptop can be used by one person at a time 
-        
+
         -> Server can be used by multiple persons(clients) at a time 
 
     -> Physical Server 
@@ -260,7 +260,7 @@
         -> Physical Server Consists Of "Hardware" + "Operating System" (Linux OS - Ubuntu)
 
         -> CPU(Processor) + RAM + HDD + N/W Card
-    
+
     -> Server Softwares 
 
         -> Web Server : Hosts and Serves Web Pages / Web Applications Over Internet 
@@ -284,7 +284,7 @@
                 afford a server 
 
             -> Rather than Purchasing Server, we want to "RENT SERVERS" 
-        
+
         -> As per example discussed 
 
             -> Buying Server == Buying Bike 
@@ -319,13 +319,13 @@
 
         -> AZURE Cloud - FREE TRAIL - 1 Month - $200
 
-    
+
     -> AWS Account Setup - LABS 
-        
+
         Visit - https://aws.amazon.com/free
 
     -> AZURE Account Setup - LABS
-        
+
         Visit - https://azure.microsoft.com/en-us/free/
 
     -> Following Details Required - Cloud Setup
@@ -359,7 +359,7 @@
 
 
     -> Firewall 
-    
+
         -> A firewall is a network security system that monitors and controls 
             incoming and outgoing network traffic based on predetermined security rules (protocols) 
 
@@ -379,7 +379,7 @@
             -> A software program which uses SSH to connect with remote linux server 
 
             -> From Online 
-                
+
                 -> https://ssheasy.com/
 
             -> From Laptop / System Use any one of the below Software 
@@ -398,7 +398,7 @@
                 -> Use below ssh command to connect with server 
                     -> ssh -i identity_file/private_key username@public-ip-address 
 
-    
+
     -> NOTE: We are using Linux Servers, which has only CLI (Command Line Interface)
 
     -> CLI - Command Line Interface
@@ -408,7 +408,7 @@
 
         -> CLI is very helpful in Automating Repetitive Tasks 
 
-    
+
     -> Requirement From Customer 
 
         -> Create 100 Text files 
@@ -427,7 +427,7 @@
         -> CPU / Processor Info 
 
             -> cat /proc/cpuinfo 
-        
+
         -> RAM Info 
 
             -> free -m 
@@ -456,7 +456,7 @@
 
         -> Customers Will Access Application Via Servers 
 
-    
+
     -> To Host / Deploy Applications, Follow Below Approach 
 
         -> Create Server 
@@ -476,7 +476,7 @@
 
         -> NOTE: All Servers that host websites must have web server program.
 
-    
+
     -> Below Work Is More Of System Admin Work 
 
         -> As Web Server Works On HTTP with Port 80, update the Firewall with HTTP 
@@ -494,7 +494,7 @@
         -> sudo apt update -y 
         -> sudo apt install nginx -y 
         -> sudo ss -ntpl 
-    
+
     -> Test Web Server 
 
         -> Browse Public IP 
@@ -521,7 +521,7 @@
             -> Clean Up DocumentRoot
 
                 -> ls /var/www/html/
-                
+
                 -> sudo rm /var/www/html/index.nginx-debian.html
 
                 -> ls /var/www/html/
@@ -531,7 +531,7 @@
                 -> ls /var/www/html/
 
                     -> README.md  img_avatar2.png  index.html (Success)
-                
+
                 -> Browse Public IP 
 
 21st Jan 2026
@@ -564,7 +564,7 @@
             -> A software program which uses SSH to connect with remote linux server 
 
             -> From Online 
-                
+
                 -> https://ssheasy.com/
 
             -> From Laptop / System Use any one of the below Software 
@@ -583,7 +583,7 @@
                 -> Use below ssh command to connect with server 
                     -> ssh -i identity_file/private_key username@public-ip-address 
 
-    
+
     -> NOTE: We are using Linux Servers, which has only CLI (Command Line Interface)
 
     -> CLI - Command Line Interface
@@ -593,7 +593,7 @@
 
         -> CLI is very helpful in Automating Repetitive Tasks 
 
-    
+
     -> Requirement From Customer 
 
         -> Create 100 Text files 
@@ -612,7 +612,7 @@
         -> CPU / Processor Info 
 
             -> cat /proc/cpuinfo 
-        
+
         -> RAM Info 
 
             -> free -m 
@@ -641,7 +641,7 @@
 
         -> Customers Will Access Application Via Servers 
 
-    
+
     -> To Host / Deploy Applications, Follow Below Approach 
 
         -> Create Server 
@@ -661,7 +661,7 @@
 
         -> NOTE: All Servers that host websites must have web server program.
 
-    
+
     -> Below Work Is More Of System Admin Work 
 
         -> As Web Server Works On HTTP with Port 80, update the Firewall with HTTP 
@@ -679,7 +679,7 @@
         -> sudo apt update -y 
         -> sudo apt install nginx -y 
         -> sudo ss -ntpl 
-    
+
     -> Test Web Server 
 
         -> Browse Public IP 
@@ -706,7 +706,7 @@
             -> Clean Up DocumentRoot
 
                 -> ls /var/www/html/
-                
+
                 -> sudo rm /var/www/html/index.nginx-debian.html
 
                 -> ls /var/www/html/
@@ -716,7 +716,7 @@
                 -> ls /var/www/html/
 
                     -> README.md  img_avatar2.png  index.html (Success)
-                
+
                 -> Browse Public IP 
 
         -> pwd : present working directory
@@ -762,7 +762,7 @@
 
     -> sh deploy.sh
 
-    
+
 23rd Jan 2026
 ==============
 
@@ -775,10 +775,10 @@
     -> Three Tier App Architecture 
 
         -> Most Popular Applications
-            
+
             -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
 
-    
+
     -> LMS Application Stack
 
         -> Database: POSTGRES
@@ -800,8 +800,8 @@
             -> Coding -> Code Analysis (White box Testing) -> Build -> Test (QA Team) -> Deploy 
 
             -> The above stages in software development makes up CI-CD Pipelines  
-    
-    
+
+
     -> Static Code Analysis - SCA (White box Testing)
 
         -> Static code analysis is the "process" of examining source code, 
@@ -828,6 +828,12 @@
         -> NOTE: Later on we as DevOps Engineers will write Automated CI-CD Pipelines,
                 in which SCA is one of the checks / steps 
 
+            -> https://miro.medium.com/v2/resize:fit:700/1*JSnrNQJAnyt8A2OiANfLCA.png
+
+            -> https://miro.medium.com/v2/resize:fit:1400/1*imFXvmkKx572ctTPXTCVSQ.png
+
+            -> https://media.licdn.com/dms/image/v2/D4E12AQEw-WgeGTPoKw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1726133260230?e=2147483647&v=beta&t=9SVi1jiR2f_oDciJYKnvvVEXwbZVZeK8lnyqfxToNUI
+
     -> Earlier to implement "Version Control" Process we used "Git" Tool 
 
     -> Now to implement "Static Code Analysis" Process we use "SonarQube" Tool 
@@ -841,15 +847,15 @@
         -> https://www.sonarsource.com/products/sonarqube/  
 
     -> SonarQube Requires Following Hardware Configuration
-        
+
             -> AWS 
-            
+
                 -> “t2.xlarge instance” i.e 16 GB RAM - 4 CPU’s on AWS, with 20 GB as Storage.  
-                
+
             -> AZURE 
-            
+
                 -> D4s_v3, i.e 16 GB RAM - 4 CPU’s on AZURE, with 30 GB as Storage
-                
+
             -> NOTE: Charges Applicable i.e 16 INR per hour
 
             -> NOTE: SonarQube works on “port 9000”
@@ -874,7 +880,7 @@
             wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
             ls
             docker   
-        
+
         -> Install SonarQube
             sudo ss -ntpl
             sudo docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
@@ -898,9 +904,9 @@
         -> NOTE: Fork Above Project to your Github Accounts
 
     -> Performing Code Analysis On LMS Project (Below Link Should be Replaced with your github account )
-    
+
         -> https://github.com/Vignesh-2009/lms-v1.git
-        
+
         ls 
         git clone -b dev https://github.com/Vignesh-2009/lms-v1.git 
         ls 
@@ -910,8 +916,6 @@
         sudo docker run  --rm -e SONAR_HOST_URL="http://3.144.15.56:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_88e483f8bb4b2d3c1621d556192c055e6c9995e7 -Dsonar.projectKey=lms
 
     -> NOTE: Once LAB is done with Sonar Analysis, Delete SonarQube Server 
-
-
 
 
 26th Jan 2026
@@ -1671,7 +1675,7 @@
             -> docker container rm -f $(docker container ps -aq)
 
             -> docker container ls -a
-       
+
         -> docker container run -dt --name login-app-1 -p 8080:80 nginx 
 
         -> Above command gives only Nginx, but we need Login App 
@@ -1698,7 +1702,7 @@
             -> Clean Up DocumentRoot
 
                 -> ls /usr/share/nginx/html
-                
+
                 -> rm -rf /usr/share/nginx/html/* 
 
                 -> ls /usr/share/nginx/html
@@ -1706,7 +1710,7 @@
         -> git clone https://github.com/ravi2krishna/login-2601.git /usr/share/nginx/html
 
         -> Test by Browsing ip address of server
-        
+
             -> exit 
 
         -> Let's remove the container and check back again by Browsing ip address of server
@@ -1724,10 +1728,10 @@
 
         -> NOTE: With above observation, we can say, when we remove container 
         all data associated with container is lost 
-        
+
         -> To achieve Persistency with data inside containers use "Docker Volumes"
 
-    
+
     -> Docker Volumes
 
         -> Docker volumes is a mechanism for "persisting data" generated by Docker containers.  
@@ -1782,7 +1786,7 @@
 
         -> NOTE: Now we want "Portability" and "Data" required for Application to work 
 
-    
+
 
     -> Dockerize Applications / Build Custom Docker Images
 
@@ -1804,12 +1808,12 @@
 
         -> A Dockerfile is a text document that contains all the commands 
         a user could call on the command line to assemble an image. 
-        
+
         -> Dockerfile is source code for Docker Image.
 
             -> Nginx Dockerfile - https://github.com/nginx/docker-nginx/blob/a306285ea2e4267c63ca539c66e8bc242bdce917/mainline/debian/Dockerfile
 
-    
+
     -> Dockerize an application requires following Flow
 
             -> create a Dockerfile with the required instructions in your project i.e repository
@@ -1819,3 +1823,826 @@
             -> Then you can run the container using the image built for confirmation 
 
             -> https://miro.medium.com/v2/1*eh-tX75FFzQffFhCfCZaMA.png
+
+
+6th Feb 2026
+==============
+
+    -> Dockerize Login Application
+
+        -> ls 
+        -> git clone https://github.com/ravi2krishna/login-2601.git
+        -> ls 
+        -> cd ~/login-2601
+        -> ls 
+        -> ls Dockerfile 
+        -> docker build -t username_docker_hub/image_name . 
+        -> Create Account On Docker Hub 
+        -> docker build -t ravi2krishna/login-2601 . 
+            -> ERROR: failed to build: open Dockerfile: no such file or directory
+        -> touch Dockerfile
+        -> ls Dockerfile
+        -> docker build -t ravi2krishna/login-2601 . 
+            -> ERROR: failed to build: failed to solve: the Dockerfile cannot be empty
+        -> cat Dockerfile
+            -> please build image
+        -> docker build -t ravi2krishna/login-2601 . 
+            -> ERROR: failed to build: dockerfile parse error on line 1: 
+            unknown instruction: please
+
+    -> NOTE: To Build Docker Images, we need to follows Docker Instructions only 
+
+    -> Docker Instructions / Docker Directives 
+
+        FROM — set base image
+        COPY — copy files to image
+        RUN — execute command in container
+        WORKDIR — set working directory
+        VOLUME — create mount-point for a volume
+        CMD — set executable for container
+        EXPOSE — set port number 
+        ENV — set environment variable
+
+    -> NOTE: Check Nginx Official page of docker hub - https://hub.docker.com/_/nginx
+
+    -> cat Dockerfile
+        # - Means Commnet, ignored by docker
+        # FROM - To Set Base Functionality
+        FROM nginx
+
+        # COPY - To Copy Files from host to above image
+        COPY . /usr/share/nginx/html
+
+    -> docker image ls 
+    -> docker build -t ravi2krishna/login-2601 . 
+    -> docker image ls 
+
+    -> docker container run -dt --name login-app -p 8080:80 ravi2krishna/login-2601
+    -> docker container ls -a
+    -> Browse ip address of server
+
+    -> Currently the custom image is on host, to get Portability Upload /  Push
+    image to Docker Hub 
+
+        -> In Docker Hub, create Token 
+        -> Follow the commands given 
+            -> docker login -u ravi2krishna
+            -> paste token 
+        -> docker push ravi2krishna/login-2601
+        -> NOTE: Verify the image in Docker Hub 
+
+    -> NOTE: Remove all containers and all images and test login app by 
+    Creating Container Using Image available in Docker Hub ravi2krishna/login-2601
+
+        -> docker container rm -f $(docker container ps -aq)
+        -> docker container ls -a
+        -> docker image ls
+        -> docker image rm -f $(docker image ls -aq)
+        -> docker image ls
+        -> remove application code too 
+        -> cd ~
+        -> rm -rf login-2601
+        -> ls 
+
+    -> NOTE: If below command works and loads application in Browser,
+    We have successfully created custom image 
+
+        -> docker container run -dt --name login-app -p 8080:80 ravi2krishna/login-2601
+
+    -> NOTE: New Requirements Came -> New Code -> Rebuild Image with tags -> Create Container
+
+    -> New Requirement
+
+        -> Student Login Form 
+        -> Trainer Login Form 
+        -> Admin Login Form 
+
+        -> Created New branches like Student, Trainer & Admin, 
+        made code changes and pushed to Github 
+
+    -> Student Release 
+
+        -> git clone -b student https://github.com/ravi2krishna/login-2601.git
+        -> cd ~/login-2601
+        -> docker image ls
+            -> ravi2krishna/login-2601:"latest"
+        -> docker build -t ravi2krishna/login-2601:student . 
+        -> docker image ls
+        -> docker push ravi2krishna/login-2601:student
+        -> docker container run -dt --name student-login-app -p 8081:80 ravi2krishna/login-2601:student 
+        -> docker container ls -a 
+
+    -> Trainer Release 
+
+        -> git clone -b trainer https://github.com/ravi2krishna/login-2601.git
+        -> cd ~/login-2601
+        -> docker image ls
+            -> ravi2krishna/login-2601:"latest"
+        -> docker build -t ravi2krishna/login-2601:trainer . 
+        -> docker image ls
+        -> docker push ravi2krishna/login-2601:trainer
+        -> docker container run -dt --name trainer-login-app -p 8082:80 ravi2krishna/login-2601:trainer 
+        -> docker container ls -a 
+
+
+    -> Now we are ready to Dockerize LMS Application 
+
+        -> LMS Application Deployment Process is 2-3 Hours 
+
+        -> Our Goal for project 2 is to Accelerate Process i.e Deployment Process is 2-3 Mins 
+
+    -> Dockerize LMS Application / Dockerize Any Three Tier Architecture Application
+
+        -> REACTJS + Nodejs + Postgres
+        -> Before beginning with project clean up existing resources 
+            -> docker container rm -f $(docker container ps -aq)
+
+        -> sudo ss -ntpl
+            -> No Ports 80, 8080, 5432 
+
+        -> Setup Postgres Database Using Docker 
+
+            -> docker container run -dt --name lms-db -e POSTGRES_PASSWORD=Login@123 postgres 
+            -> docker container ls -a 
+
+        -> Setup Nodejs Environment Using Docker 
+
+            -> docker container run -dt --name t1 node:22 
+            -> docker container ls -a 
+            -> docker container exec t1 node -v 
+            -> docker container exec t1 npm -v 
+
+        -> Steps To Build Custom LMS Backend Image 
+
+            -> ls
+            -> cd ~
+            -> git clone -b dev https://github.com/ravi2krishna/lms-v1.git 
+            -> ls 
+            -> cd ~/lms-v1/api
+            -> vi .env 
+                MODE=dev
+                PORT=8080
+                DATABASE_URL=postgresql://postgres:db_password@localhost:5432/postgres
+
+            -> docker container inspect lms-db
+                -> update the ip of lms-db container in .env file 
+
+            -> vi .env 
+                MODE=dev
+                PORT=8080
+                DATABASE_URL=postgresql://postgres:Login@123@172.17.0.2:5432/postgres
+
+            -> rm Dockerfile 
+                -> (old existing Dockerfile we removed)
+
+            -> vi Dockerfile 
+
+                # Base Image
+                FROM node:22
+
+                # RUN - runs commands
+                RUN mkdir /backend
+
+                # WORKDIR - set path as working directory
+                WORKDIR /backend
+
+                # COPY - copy code
+                COPY . /backend
+
+                # RUN - Build Related Commands
+                RUN npm install
+                RUN npx prisma generate
+                RUN npx prisma db push
+                RUN npm run build
+
+                # Start Application
+                # RUN node build/index.js
+                CMD ["node","build/index.js"]
+
+
+            -> docker build -t ravi2krishna/lms-be . 
+            -> docker image ls 
+            -> docker container run -dt --name lms-be -p 8080:8080 ravi2krishna/lms-be 
+            -> docker container ls -a 
+
+            -> Verify Backend Status 
+
+            -> Verify with Browser - http://public-ip:8080/api  
+
+            -> NOTE: If you get below message, backend deployment is success   
+
+                {"message":"success","mode":"dev"}
+
+            -> docker push ravi2krishna/lms-be 
+
+
+        -> Steps To Build Custom LMS Frontend Image 
+
+            -> cd ~/lms-v1/webapp/
+
+            -> rm Dockerfile 
+                -> (old existing Dockerfile we removed)
+
+            -> vi .env 
+
+                VITE_API_URL=http://public-ip:8080/api
+
+            -> vi Dockerfile
+
+                # Base Image
+                FROM node:22 AS build
+
+                # RUN - runs commands
+                RUN mkdir /frontend
+
+                # WORKDIR - set path as working directory
+                WORKDIR /frontend
+
+                # COPY - copy code
+                COPY . /frontend
+
+                # RUN - Build Related Commands
+                RUN npm install
+                RUN npm run build
+
+                # Deploy Application On Nginx
+                FROM nginx
+
+                # COPY
+                COPY --from=build /frontend/dist /usr/share/nginx/html
+
+            -> docker build -t ravi2krishna/lms-fe . 
+            -> docker image ls 
+            -> docker container run -dt --name lms-fe -p 80:80 ravi2krishna/lms-fe 
+            -> docker container ls -a 
+
+            -> Verify Frontend with Browser - http://public-ip:80
+
+            -> docker push ravi2krishna/lms-fe 
+
+    -> NOTE: In future i want to run LMS Applicable
+
+        -> docker container run -dt --name lms-db -e POSTGRES_PASSWORD=Login@123 postgres 
+        -> docker container run -dt --name lms-be -p 8080:8080 ravi2krishna/lms-be 
+        -> docker container run -dt --name lms-fe -p 80:80 ravi2krishna/lms-fe 
+
+
+9th Feb 2026
+==============
+
+    -> DevOps is a set of PRACTICES that works towards the 
+    "AUTOMATION" and "INTEGRATION" of the processes between 
+    Software Development (Dev) and IT (Ops) teams, 
+    so that organizations can "BUILD", "TEST" and "DEPLOY" softwares/applications 
+    "FASTER" and more "RELIABLE"
+
+        -> Project - 2
+
+            -> Implement Acceleration i.e FASTNESS using "Containerization" Practice
+
+
+    -> Project - 3 
+
+        -> Implement RELIABILITY i.e ALWAYS RUNNING without DOWNTIME using "Orchestration" Practice
+
+        -> Once we Terminated Docker Server, we need to setup Environment from scratch again 
+       (Single Point Of Failure) 
+
+        -> High Availability (HA)
+
+            -> HA means designing IT systems to operate continuously with minimal or zero downtime.
+
+            -> To achieve HA we eliminate Single Point Of Failure
+
+        -> High availability in AWS/AZURE ensures that applications and services are 
+        continuously accessible and operational, even in the event of component failures.
+
+        -> HA is achieved by deploying resources across multiple availability zones (AZs),
+        an availability zone is an physical datacenter
+
+        -> To Achieve High Availability / Reliability we need process called "Orchestration"
+
+        -> To implement Orchestration, we use "Kubernetes" 
+
+
+    -> Production-Grade Container Orchestration
+
+        -> Production-grade container orchestration refers to the capability of 
+        "running containerized applications in a production environment" effectively and reliably.
+
+    -> Kubernetes
+
+        -> Kubernetes is a Production-Grade Container Orchestration, which builds up on 
+        "15 years of experience of running production workloads at Google"
+
+        -> It was originally designed by Google, and is now maintained by the 
+        Cloud Native Computing Foundation (CNCF)
+
+    -> Kubernetes Components / Architecture 
+
+        -> Master Components
+
+        -> API Server: 
+
+            -> The API server acts as the brain of the Kubernetes cluster. 
+            It provides a central point of communication for all the other components. 
+            When you want to create, update, or delete something in the cluster, 
+            you communicate with the API server.
+
+        -> etcd: 
+
+            -> Think of etcd as the memory of the Kubernetes cluster. 
+            It stores the configuration data and the state of the entire cluster. 
+            When any component wants to know the current state of the cluster, it asks etcd.
+
+        -> Scheduler: 
+
+            -> The Scheduler is like a matchmaker. 
+            Its job is to decide which worker node should run each new app container/pod. 
+            It considers factors like available resources, to make sure app containers/pods 
+            are placed on suitable worker nodes.
+
+        -> Controller: 
+
+            -> The Controller Manager is like the supervisor of the cluster. 
+            It continuously observes the state of the cluster through the API server. 
+            If it detects that the actual state of the cluster doesn't match the desired state 
+            (for example, if an app container/pod goes down), 
+            it takes action to make the cluster converge to the desired state.
+
+    -> Worker Components
+
+        -> Kubelet: 
+
+            -> The Kubelet is like the worker's Agent Software.  
+            It runs on every worker node and is responsible for making sure 
+            that the containers/pods assigned to its node are running and healthy. 
+            It takes care of starting, stopping, and monitoring containers within the pods. 
+            It updates the status back to Master.
+
+        -> Docker: 
+
+            -> The container runtime is the software that runs and manages containers.  
+            The container runtime is responsible for pulling container images from a registry, 
+            creating containers, and managing their life cycles.
+
+        -> Kube Proxy: 
+
+            -> The Kube Proxy is like the traffic cop of the worker nodes. 
+            It manages the network connections and routing between the containers/pods and services 
+            within the cluster. It ensures that network traffic is correctly directed to the right destination.
+
+    -> Workstation Component
+
+        -> Kubectl: 
+
+            -> API server is the main entrypoint to the k8s cluster, 
+            so if you want to do anything in Kubernetes(k8s) cluster, 
+            you first have to talk to the API server and the way to talk is through 
+            a client software called KUBECTL, a CLI tool.
+
+
+    -> Setup Kubernetes
+
+        -> Minikube - Mini Kubernetes (Free -> Minimal Cost)
+
+        -> Minikube is a "single node cluster", where the master processes and worker processes 
+        and workstation all run on one node (one server).
+
+            -> https://www.devopsschool.com/blog/wp-content/uploads/2022/12/minikube-architecture-4-1024x683.png
+
+        -> Minikube is primarily used for local development and "learning purposes".
+
+        -> Minikube is great for learning, but it is "not designed for running production workloads".
+
+        -> For production environments, you would typically use "managed Kubernetes services" 
+        provided by "cloud providers" i.e AWS EKS or AZURE AKS or GOOGLE GKE etc
+
+
+    -> Minikube Requires, below hardware configuration
+
+        -> AWS 
+
+            -> “t2.medium instance” i.e 4 GB RAM - 2 CPU’s on AWS, with 20 GB as Storage.  
+
+        -> AZURE 
+
+            -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage   
+
+        -> Add Following Rules in Security Groups / Network Security Groups
+            -> 22, 80, 30000-32767
+
+    -> In Minikube We need to do setup Manually, but in Production vendors provide the Setup 
+
+    -> Setup Minikube 
+
+        -> Setup Docker 
+
+            -> docker 
+            -> wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            -> docker
+            -> sudo usermod -aG docker ubuntu
+            -> newgrp docker
+
+        -> Setup Minikube
+
+            -> minikube
+            -> curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+            -> sudo install minikube-linux-amd64 /usr/local/bin/minikube
+            -> minikube
+            -> minikube status
+            -> minikube start
+            -> minikube status
+
+        -> Setup kubectl
+
+            -> kubectl
+            -> curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+            -> chmod u+x kubectl 
+            -> sudo mv kubectl /usr/local/bin/kubectl
+            -> kubectl 
+
+    -> NOTE: Once the minikube cluster is setup, we are gonna be using "kubectl" to do 
+    any sort of work on the cluster like getting status, creating applications etc 
+
+        -> kubectl get pods 
+        -> kubectl get replicasets 
+        -> kubectl get deployments 
+        -> etc 
+
+    -> Kubernetes Objects 
+
+        -> By creating an object, you’re telling the Kubernetes system 
+        what applications to run in the cluster
+
+        -> Few examples of kubernetes objects include pods, replicasets, deployments etc. 
+
+        -> To work with Kubernetes objects, whether to "create", "modify" or "delete" them, 
+        you’ll need to use a command-line tool called KUBECTL.
+
+    -> Object Spec & Object Status
+
+        -> Object Spec
+
+            -> The object spec, which you(devops engineer) must provide, 
+            describes your desired state for the object(application), 
+            the characteristics that you want the object to have.
+
+        -> Object Status
+
+            -> The object status describes the actual state of the object, 
+            and is supplied and updated by the Kubernetes system.
+
+        -> https://kubernetes.io/docs/concepts/overview/working-with-objects/
+
+
+    -> Manage Objects 
+
+        -> Managing Objects inside kubernetes can be done using
+            -> Commands - Imperative Commands
+            -> CODE(YAML) - Declarative Configuration files or Manifests (recommended)
+
+    -> Pod 
+
+        -> A Pod Object, represents a "unit of deployment" i.e a 
+        "single instance of an application" in Kubernetes.  
+
+    -> Imperative Command 
+
+        -> Similar to Docker Commands
+
+            -> kubectl get pods 
+
+            -> kubectl run pod-name --image image_name --port=port_number 
+
+            -> kubectl run nginx-pod --image nginx --port=80
+
+            -> kubectl get pods 
+
+            -> kubectl exec pod-name -- command 
+
+            -> kubectl exec nginx-pod -- cat /usr/share/nginx/html/index.html  
+
+            -> kubectl describe pod pod-name
+
+            -> kubectl describe pod nginx-pod
+
+            -> kubectl delete pod pod-name
+
+            -> kubectl delete pod nginx-pod
+
+            -> kubectl get pods 
+
+
+10th Feb 2026
+==============
+
+    -> Representing k8s objects using CODE (YAML)
+
+    -> YAML 
+
+        -> YAML is a human-readable data serialization language. 
+        It is commonly used for "configuration files" (k8s) and in applications 
+        where data is being stored or transmitted.
+
+        -> YAML focuses on USER FRIENDLINESS & EASY READABILITY
+
+            -> https://thedeveloperstory.com/wp-content/uploads/2021/12/yaml-syntax-1024x512.png
+
+        -> YAML is used to store information about different k8s objects 
+        pods, replicasets, deployments etc
+
+        -> YAML in k8s 
+
+            -> Simple Key Values 
+
+            -> Dictionaries: Set Of Key Values 
+
+            -> Lists: Multiple Items 
+
+            -> Combinations Of above 
+
+                -> https://developer.ibm.com/tutorials/yaml-basics-and-usage-in-kubernetes/
+
+    -> NOTE: Every k8s object has 4 Top Level items in yaml script 
+
+        -> apiVersion
+        -> kind
+        -> metadata
+        -> spec 
+
+    -> Get YAML Definition for k8s objects 
+
+        -> Approach 1: https://kubernetes.io/docs/concepts/workloads/pods/
+
+        -> Approach 2: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#pod-v1-core
+
+        -> Approach 3: Using commands 
+
+            -> kubectl explain pod
+
+    -> Pod Using YAML 
+
+        -> Create Pod Definition (pod.yaml)
+
+        -> kubectl get pods 
+
+        -> kubectl apply -f pod.yaml 
+
+        -> kubectl get pods 
+
+        -> kubectl exec nginx-pod -- cat /usr/share/nginx/html/index.html  
+
+        -> kubectl describe pod nginx-pod
+
+        -> kubectl delete pod nginx-pod
+
+        -> kubectl get pods 
+
+        -> NOTE: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#pod-v1-core
+
+        -> Warning: It is recommended that users create Pods only through a Controller, 
+        and not directly.
+
+        -> PODS are ephemeral in nature
+
+        -> Pods are not designed to run forever
+
+        -> Pods do not "heal" or "repair" themselves
+
+
+    -> Replicaset Object 
+
+        -> Replica Set is often used to guarantee the "availability" of pods 
+
+        -> Replica Set manages pod lifecycle
+
+        -> Replicaset helps you achieve High Availability 
+
+        -> https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#replicaset-v1-apps
+
+        -> Warning: In many cases it is recommended to create a "Deployment" instead of ReplicaSet.
+
+        -> NOTE: ReplicaSets Don't Allow Updates 
+
+    -> Deployment Object
+
+        -> A deployment provides "updates" for pods and replicasets.
+
+        -> NOTE: No Warning for Deployment, this is the reason in real world 
+                We never create pods & replicasets directly.
+                We use deployments in real world to manage pods & replicasets.
+
+            -> Deployment -> ReplicaSet -> Pods 
+
+            -> Deployment(updates) -> ReplicaSet(availability) -> Pods(application)
+
+        -> https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#deployment-v1-apps
+
+        -> Remove existing replicaset to test 
+
+            -> kubectl delete replicaset nginx 
+
+            -> kubectl get replicasets
+
+            -> kubectl get pods 
+
+
+    -> Service Object
+
+        -> A service is an object that acts as an endpoint, which you use to access the pods.
+
+            -> NodePort         -> access over internet not for production (for minikube)
+            -> Cluster IP       -> access within intranet (private communication) (api to db)
+            -> LoadBalancer     -> access over internet provided by cloud for production
+            -> ExternalName     -> For Doamin Name Forwarding 
+
+        -> https://assets.bytebytego.com/diagrams/0005-4-k8s-service-types.png
+
+        -> https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#service-v1-core
+
+
+16th Feb 2026
+==============
+
+    -> NodePort Service
+
+        -> You can contact the NodePort Service, from outside (www) the cluster, 
+            by requesting <NodeIP>:<NodePort>
+
+            -> This is similar to docker using -P (32768 - 61000)
+
+            -> In k8s we use (30000 - 32767)
+
+        -> NOTE: In Docker We have port Forwarding, likewise we have 
+        Kubernetes NodePort Service
+
+    -> Labels & Selectors
+
+        -> Labels: Labels are key/value pairs that are attached to objects.  
+
+        -> Selectors: Using a label selector, we can identify a set of objects.
+
+        -> https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg
+
+        -> NOTE: Whatever the label we have in the pod definition, 
+                    the same should be in "matchLabels" section
+
+        -> kubectl get services 
+
+        -> kubectl port-forward --address 0.0.0.0 service/nginx-service 30000:80
+
+
+    -> NOTE: In Docker We have Volumes for data management, likewise we have 
+    Kubernetes Persistent Volume 
+
+    -> Persistent Volumes - PV 
+
+        -> A PersistentVolume (PV) is a piece of "storage" in the cluster
+
+        -> PersistentVolume represents storage independent of pods 
+
+            -> How volumes are independent of containers 
+
+        -> PersistentVolumeClaim - PVC
+
+            -> A PersistentVolumeClaim is a request for storage by a pod
+
+        -> Storage Class
+
+            -> A StorageClass in Kubernetes defines the type of storage to use 
+
+        -> NOTE: 
+
+            -> Pod -> Volume Claim -> Persistent Volume -> Physical Storage (/mnt/data) 
+
+        -> https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/
+
+
+18th Feb 2026
+==============
+
+    -> Namespaces 
+
+        -> In Kubernetes, namespaces provide a mechanism for isolation
+
+        -> Like we have branches in git, we have namespaces in kubernetes 
+
+        -> https://miro.medium.com/v2/resize:fit:1200/1*1zWBdgIgpUjRReDzLHt5Dg.png
+
+        -> https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#creating-a-new-namespace
+
+        -> kubectl get ns 
+
+        -> kubectl get namespace  
+
+        -> kubectl get pods
+
+        -> kubectl get pods -n kube-system
+
+        -> kubectl apply -f dev-namespace.yaml
+
+        -> kubectl get ns 
+
+        -> kubectl get pods -n dev
+
+
+
+    -> Auto Scaling 
+
+        -> In Kubernetes, you can automatically scale a workload using a HorizontalPodAutoscaler (HPA)
+
+        -> https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+        -> kubectl get pods -n kube-system
+
+        -> minikube addons enable metrics-server
+
+        -> kubectl get pods -n kube-system
+
+            -> requests: cpu: 200m
+
+            -> 1000 milli cpu = 1 cpu 
+
+            -> The container is asking for 200 milli cups to be "reserved" 
+
+            -> limits: cpu: 500m
+
+            -> The container can use upto 500 milli cups
+
+        -> kubectl get hpa
+
+        -> kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+
+        -> kubectl get hpa
+
+        -> kubectl get hpa -w 
+
+        -> kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"   
+
+        -> kubectl get hpa -w 
+
+        -> control + c 
+
+        -> kubectl get hpa -w 
+
+
+    -> Next we want to Deploy LMS Project On Kubernetes Production Environment
+
+    -> NOTE: Minikube is great for learning, but it is "not designed for running production workloads".
+
+    -> AWS EKS (Elastic Kubernetes Service) Production Cluster 
+
+
+20th Feb 2026
+==============
+
+    -> AWS EKS Production Cluster 
+
+        -> Create Master 
+
+        -> Create Worker Node (Across Multiple Zones)
+
+        -> Create Workstation
+
+    -> Create IAM User: eks 
+
+        -> Using eks user we will setup production cluster 
+
+    -> Workstation Setup 
+
+        -> Setup docker
+
+            wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            docker
+            sudo usermod -aG docker ubuntu
+            newgrp docker
+
+
+        -> Setup Kubectl
+
+            kubectl 
+            curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
+            chmod +x kubectl
+            sudo mv kubectl /usr/local/bin/kubectl
+            kubectl
+            kubectl get pods
+
+        -> Connect Workstation With Cluster, To Deploy Applications On Production Cluster 
+
+            aws 
+            sudo apt -y update && sudo apt -y install awscli
+            aws 
+            aws eks list-clusters
+            aws configure
+            aws eks list-clusters
+            kubectl get services
+            cat /home/ubuntu/.kube/config
+            aws eks update-kubeconfig --name <cluster> --region <region-code>
+            aws eks update-kubeconfig --name lms --region us-east-2
+            cat /home/ubuntu/.kube/config
+            kubectl get services
+            kubectl get pods
+            kubectl get deployments
+
+    -> NOTE: Delete the Cluster Once LAB Is Done, if not charges Applicable
